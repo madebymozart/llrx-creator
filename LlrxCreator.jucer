@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="FjLjPE" name="LlrxCreator" displaySplashScreen="1" reportAppUsage="1"
+              splashScreenColour="Dark" projectType="consoleapp" version="1.0.0"
+              bundleIdentifier="com.yourcompany.LlrxCreator" includeBinaryInAppConfig="1"
+              cppLanguageStandard="11" companyCopyright="" jucerVersion="5.2.0"
+              headerPath="">
+  <MAINGROUP id="Wpros1" name="LlrxCreator">
+    <GROUP id="{52B9F542-E731-BCFF-D368-16F9B1597B94}" name="External">
+      <GROUP id="{5D855EFC-067B-0269-75E2-E682E3B9307A}" name="flatbuffers">
+        <FILE id="QAyNdO" name="idl_parser.cpp" compile="1" resource="0" file="External/flatbuffers/idl_parser.cpp"/>
+        <FILE id="d8yCSm" name="reflection.cpp" compile="1" resource="0" file="External/flatbuffers/reflection.cpp"/>
+        <FILE id="oktBSX" name="util.cpp" compile="1" resource="0" file="External/flatbuffers/util.cpp"/>
+      </GROUP>
+      <GROUP id="{4D9B6D26-299A-A2D5-D792-C001EA5CC0B1}" name="json">
+        <FILE id="nDQgQB" name="json.hpp" compile="1" resource="0" file="External/json/json.hpp"/>
+      </GROUP>
+    </GROUP>
+    <GROUP id="{9E22F0B3-3D67-413A-C486-1FF6643F6659}" name="Source">
+      <FILE id="U6Th6V" name="main.cpp" compile="1" resource="0" file="Source/main.cpp"/>
+    </GROUP>
+  </MAINGROUP>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" enablePluginBinaryCopyStep="1" isDebug="1" optimisation="1"
+                       linkTimeOptimisation="0" targetName="LlrxCreator" headerPath="../../External"
+                       binaryPath="Tests"/>
+        <CONFIGURATION name="Release" enablePluginBinaryCopyStep="1" isDebug="0" optimisation="3"
+                       linkTimeOptimisation="1" targetName="LlrxCreator" headerPath="../../External"
+                       binaryPath="Release"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="JuceLibraryCode/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="1" useGlobalPath="0"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="1" useGlobalPath="0"/>
+  </MODULES>
+  <JUCEOPTIONS/>
+</JUCERPROJECT>
