@@ -1,0 +1,15 @@
+// Copyright (c) 2017 Mozart Alexander Louis. All rights reserved
+
+table Llrx {
+  amount:int;
+  name:string;
+  entities:[Entity];   // Vector of entities.
+}
+
+table Entity {
+  note:short;
+  time:float;
+  delta:float;
+}
+
+root_type Llrx;
