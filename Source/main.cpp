@@ -12,7 +12,7 @@ void configure(cli::Parser &parser) {
 
 /// Main
 int main (int argc, char* argv[]) {
-	std::cout << std::endl << "###### LlrxCreator - A tool to convert tailered midi files to Llrx files for Lleeria";
+	std::cout << std::endl << "###### LlrxCreator 1.0.0 - A tool to convert midi files to llrx files for Lleeria";
 	std::cout << std::endl << "###### Copyright (c) 2017 Mozart Louis" << std::endl;
 	
 	/// Create command line parser to handle all the command things
