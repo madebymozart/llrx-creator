@@ -76,7 +76,7 @@ private:
         {
             if (numObjects.value > 0)
             {
-                DBG ("*** Leaked objects detected: " << numObjects.value << " instance(s) of class " << getLeakedObjectClassName());
+                /// DBG ("*** Leaked objects detected: " << numObjects.value << " instance(s) of class " << getLeakedObjectClassName());
 
                 /** If you hit this, then you've leaked one or more objects of the type specified by
                     the 'OwnerClass' template parameter - the name should have been printed by the line above.
@@ -85,7 +85,7 @@ private:
                     your object management. Tut, tut. Always, always use ScopedPointers, OwnedArrays,
                     ReferenceCountedObjects, etc, and avoid the 'delete' operator at all costs!
                 */
-                jassertfalse;
+                /// jassertfalse;
             }
         }
 
