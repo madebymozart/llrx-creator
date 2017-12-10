@@ -109,7 +109,7 @@
 				INSTALL_PATH = "/usr/bin";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MACOSX_DEPLOYMENT_TARGET_ppc = 10.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.LlrxCreator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mozartlouis.llrxcreator;
 				SDKROOT_ppc = macosx10.5;
 				USE_HEADERMAP = NO; }; name = "Tests (Debug)"; };
 		9CA2DB9C4D2B7A43CE9B7420 = {isa = XCBuildConfiguration; buildSettings = {
@@ -140,7 +140,7 @@
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MACOSX_DEPLOYMENT_TARGET_ppc = 10.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.LlrxCreator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mozartlouis.llrxcreator;
 				SDKROOT_ppc = macosx10.5;
 				USE_HEADERMAP = NO; }; name = Release; };
 		76684F9A3BD24CEBF7078E09 = {isa = XCBuildConfiguration; buildSettings = {
