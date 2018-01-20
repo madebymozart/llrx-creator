@@ -62,7 +62,6 @@ void Creator::execute() {
 			std::cout << "###### " << file << ".mid is corrupt... Re-export..." << std::endl;
 			continue;
 		}
-		
 		midi->convertTimestampTicksToSeconds();
 		
 		/// Create flatbuffer instance of this thread
@@ -132,5 +131,22 @@ bool Creator::validateLlrx(const std::string& llrx, const int32_t entity_amount)
 	
 	/// Validate this is a LlrxBuffer and is readable
 	flatbuffers::Verifier verifier(reinterpret_cast<const uint8_t *>(readbuf.c_str()), readbuf.length());
+	
+	/** auto readOrc = GetLlrx(readbuf.c_str());
+	 std::cout << "Name: " << readOrc->name()->c_str() << std::endl;
+	 std::cout << "Amount: " << readOrc->amount() << std::endl;
+	 
+	 for (auto it = readOrc->entities()->begin(); it != readOrc->entities()->end(); ++it) {
+	 // access element as *it
+	 std::cout << "Entities:" << std::endl;
+	 
+	 std::cout << " Note:" << it->note() << std::endl;
+	 std::cout << " Time:" << it->time() << std::endl;
+	 std::cout << " Delta:" << it->delta() << std::endl;
+	 
+	 // any code including continue, break, return
+	 } */
+	
 	return VerifyLlrxBuffer(verifier) and entity_amount == GetLlrx(readbuf.c_str())->amount();
+	
 }
