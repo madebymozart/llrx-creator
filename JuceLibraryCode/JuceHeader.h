@@ -17,6 +17,7 @@
 #include <juce_audio_basics/juce_audio_basics.h>
 #include <juce_core/juce_core.h>
 
+#include "BinaryData.h"
 
 #if ! DONT_SET_USING_JUCE_NAMESPACE
  // If your code uses a lot of JUCE classes, then this will obviously save you
@@ -28,7 +29,8 @@
 namespace ProjectInfo
 {
     const char* const  projectName    = "LlrxCreator";
-    const char* const  versionString  = "1.0.0";
-    const int          versionNumber  = 0x10000;
+    const char* const  companyName    = "";
+    const char* const  versionString  = "1.1.0";
+    const int          versionNumber  = 0x10100;
 }
 #endif

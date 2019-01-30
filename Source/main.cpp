@@ -1,32 +1,43 @@
-/// Copyright (c) 2017 Mozart Alexander Louis. All rights reserved.
+/// Copyright (c) 2019 Mozart Alexander Louis. All rights reserved.
 
 /// Includes
 #include "cmd/cmd.hpp"
 #include "creator/creator.h"
-#include "JuceHeader.h"
+#include "util.h"
+#include <iostream>
+#include <filesystem>
 
 /// Configure the command-line arguments for LlrxCreator
 void configure(cli::Parser &parser) {
-	parser.set_optional<std::string>("c", "config", "config.json");
+	parser.set_required<std::string>("d", "directory", "", "Relative path to directory with containing files");
 }
 
+
 /// Main
-int main (int argc, char* argv[]) {
-	std::cout << std::endl << "###### LlrxCreator 1.0.0 - A tool to convert midi files to llrx files for Lleeria";
-	std::cout << std::endl << "###### Copyright (c) 2017 Mozart Louis" << std::endl;
-	
+int main(int argc, char* argv[]) {
+	std::cout << std::endl << "###### LlrxCreator 1.1.0 - A tool to convert midi files to llrx files for Lleeria";
+	std::cout << std::endl << "###### Copyright (c) 2019 Mozart Louis" << std::endl << std::endl;
+
 	/// Create command line parser to handle all the command things
 	cli::Parser parser(argc, argv);
 	configure(parser);
-	
+
 	/// Read the json file and pass it to the main parser that will create llrx files. This default to config.json
 	/// but can be overwrittern with the `-c` in a terminal
-	const std::string json_file = parser.get<std::string>("c");
-	std::cout << std::endl << "###### Reading \"" << json_file << "\"..." << std::endl;
-	
-	/// Run the creator with the json file to create the llrx files
-	new Creator(json_file.c_str());
-	
+	auto path = parser.get<std::string>("d");
+	const auto& creator = new Creator();
+
+	/// Delete and remake the output directory
+	std::filesystem::remove(__LLRX_OUTPUT__);
+	std::filesystem::create_directory(__LLRX_OUTPUT__);
+
+	/// Go through every file in the directory and try to create a llrx file with them.
+	for (const auto& entry : std::filesystem::directory_iterator(path)) {
+		const auto name = entry.path().generic_string();
+		if (ends_with(name, ".mid") || ends_with(name, ".midi")) creator->createLlrxFile(name);
+		else std::cout << "Ignoring " << entry.path() << std::endl;
+	}
+
 	/// Exit
 	return 0;
 }

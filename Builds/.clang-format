@@ -1,0 +1,13 @@
+# MxR Clang Format
+
+BasedOnStyle: Google
+AlignEscapedNewlinesLeft: 'true'
+AllowShortBlocksOnASingleLine: 'true'
+AllowShortIfStatementsOnASingleLine: 'true'
+AllowShortLoopsOnASingleLine: 'true'
+AlwaysBreakTemplateDeclarations: 'true'
+BinPackParameters: 'true'
+ColumnLimit: '90'
+Cpp11BracedListStyle: 'true'
+Language: Cpp
+NamespaceIndentation: None

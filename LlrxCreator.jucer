@@ -1,56 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="FjLjPE" name="LlrxCreator" displaySplashScreen="1" reportAppUsage="1"
-              splashScreenColour="Dark" projectType="consoleapp" version="1.0.0"
+              splashScreenColour="Dark" projectType="consoleapp" version="1.1.0"
               bundleIdentifier="com.mozartlouis.llrxcreator" includeBinaryInAppConfig="1"
-              cppLanguageStandard="11" companyCopyright="Copyright (c) 2017 Mozart Alexander Louis"
-              jucerVersion="5.2.0" headerPath="" companyEmail="mozartalouis@gmail.com">
+              cppLanguageStandard="latest" companyCopyright="Copyright (c) 2019 Mozart Alexander Louis"
+              jucerVersion="5.4.1" headerPath="..\Source&#10;..\Source\External&#10;"
+              companyEmail="prodbymozart@gmail.com">
   <MAINGROUP id="Wpros1" name="LlrxCreator">
-    <GROUP id="{52B9F542-E731-BCFF-D368-16F9B1597B94}" name="External">
-      <GROUP id="{9AA9762D-9990-7443-3473-37F2FE9ADF9E}" name="cmd">
-        <FILE id="l8Q67E" name="cmd.hpp" compile="1" resource="0" file="External/cmd/cmd.hpp"/>
-      </GROUP>
-      <GROUP id="{5D855EFC-067B-0269-75E2-E682E3B9307A}" name="flatbuffers">
-        <FILE id="QAyNdO" name="idl_parser.cpp" compile="1" resource="0" file="External/flatbuffers/idl_parser.cpp"/>
-        <FILE id="d8yCSm" name="reflection.cpp" compile="1" resource="0" file="External/flatbuffers/reflection.cpp"/>
-        <FILE id="oktBSX" name="util.cpp" compile="1" resource="0" file="External/flatbuffers/util.cpp"/>
-      </GROUP>
-      <GROUP id="{4D9B6D26-299A-A2D5-D792-C001EA5CC0B1}" name="json">
-        <FILE id="nDQgQB" name="json.hpp" compile="1" resource="0" file="External/json/json.hpp"/>
-      </GROUP>
-    </GROUP>
     <GROUP id="{9E22F0B3-3D67-413A-C486-1FF6643F6659}" name="Source">
+      <GROUP id="{2F1036F7-7224-B3A6-CA25-7F35F423461D}" name="external">
+        <GROUP id="{E7C18A41-B060-1959-98F5-53EC6CE55454}" name="cmd">
+          <FILE id="KRJ8Mt" name="cmd.hpp" compile="0" resource="0" file="Source/External/cmd/cmd.hpp"/>
+        </GROUP>
+        <GROUP id="{2B2D6EB9-53F6-4A69-4D6B-FFF108268AAE}" name="flatbuffers">
+          <FILE id="cnzyqF" name="base.h" compile="0" resource="0" file="Source/External/flatbuffers/base.h"/>
+          <FILE id="jQ2Ezn" name="flatbuffers.h" compile="0" resource="0" file="Source/External/flatbuffers/flatbuffers.h"/>
+          <FILE id="rkY3Cx" name="flexbuffers.h" compile="0" resource="0" file="Source/External/flatbuffers/flexbuffers.h"/>
+          <FILE id="oOGmaK" name="grpc.h" compile="0" resource="0" file="Source/External/flatbuffers/grpc.h"/>
+          <FILE id="UgT4DU" name="hash.h" compile="0" resource="0" file="Source/External/flatbuffers/hash.h"/>
+          <FILE id="H4P7VK" name="idl.h" compile="0" resource="0" file="Source/External/flatbuffers/idl.h"/>
+          <FILE id="QITYLT" name="idl_parser.cpp" compile="1" resource="0" file="Source/External/flatbuffers/idl_parser.cpp"/>
+          <FILE id="OxkQmL" name="minireflect.h" compile="0" resource="0" file="Source/External/flatbuffers/minireflect.h"/>
+          <FILE id="tpXfgP" name="reflection.cpp" compile="1" resource="0" file="Source/External/flatbuffers/reflection.cpp"/>
+          <FILE id="YVmwPW" name="reflection.h" compile="0" resource="0" file="Source/External/flatbuffers/reflection.h"/>
+          <FILE id="wbnJs3" name="reflection_generated.h" compile="0" resource="0"
+                file="Source/External/flatbuffers/reflection_generated.h"/>
+          <FILE id="ekKWEg" name="registry.h" compile="0" resource="0" file="Source/External/flatbuffers/registry.h"/>
+          <FILE id="H5ILx2" name="stl_emulation.h" compile="0" resource="0" file="Source/External/flatbuffers/stl_emulation.h"/>
+          <FILE id="eqmEPX" name="util.cpp" compile="1" resource="0" file="Source/External/flatbuffers/util.cpp"/>
+          <FILE id="p3QCcz" name="util.h" compile="0" resource="0" file="Source/External/flatbuffers/util.h"/>
+        </GROUP>
+      </GROUP>
+      <GROUP id="{4958A094-00CE-1378-6F9A-415644BFE42B}" name="schema">
+        <FILE id="SjmWh1" name="llrx.fbs" compile="0" resource="1" file="Source/Schema/llrx.fbs"/>
+        <FILE id="Ny9iOg" name="llrx_generated.h" compile="0" resource="0"
+              file="Source/Schema/llrx_generated.h"/>
+      </GROUP>
       <GROUP id="{F61DDD04-4FFB-0179-0356-236BE64F7763}" name="creator">
         <FILE id="USxRym" name="creator.cpp" compile="1" resource="0" file="Source/creator/creator.cpp"/>
         <FILE id="oS9FlW" name="creator.h" compile="0" resource="0" file="Source/creator/creator.h"/>
       </GROUP>
+      <FILE id="UuMpCH" name="util.h" compile="0" resource="0" file="Source/util.h"/>
       <FILE id="U6Th6V" name="main.cpp" compile="1" resource="0" file="Source/main.cpp"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
-    <XCODE_MAC targetFolder="Builds/MacOSX">
+    <VS2017 targetFolder="Builds/">
       <CONFIGURATIONS>
-        <CONFIGURATION name="Tests (Debug)" enablePluginBinaryCopyStep="1" isDebug="1"
-                       optimisation="1" linkTimeOptimisation="0" targetName="LlrxCreator"
-                       headerPath="../../External&#10;../../Schema" binaryPath="Tests"
-                       osxSDK="default" osxCompatibility="default"/>
-        <CONFIGURATION name="Release" enablePluginBinaryCopyStep="1" isDebug="0" optimisation="3"
-                       linkTimeOptimisation="1" targetName="LlrxCreator" headerPath="../../External&#10;../../Schema"
-                       binaryPath="Release" osxSDK="default" osxCompatibility="default"
-                       osxArchitecture="default"/>
+        <CONFIGURATION isDebug="1" name="Debug" multiProcessorCompilation="1" optimisation="3"/>
+        <CONFIGURATION isDebug="0" name="Release" headerPath="..\Source\External\&#10;..\Source\Schema\"
+                       libraryPath="..\Source\External\&#10;..\Source\Schema\"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
-        <MODULEPATH id="juce_core" path="JuceLibraryCode/modules"/>
-        <MODULEPATH id="juce_audio_basics" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_core" path="../../juce"/>
+        <MODULEPATH id="juce_audio_basics" path="../../juce"/>
       </MODULEPATHS>
-    </XCODE_MAC>
+    </VS2017>
   </EXPORTFORMATS>
   <MODULES>
-    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="1" useGlobalPath="0"/>
-    <MODULE id="juce_core" showAllCode="1" useLocalCopy="1" useGlobalPath="0"/>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
   </MODULES>
   <JUCEOPTIONS/>
   <LIVE_SETTINGS>
     <OSX/>
+    <WINDOWS buildEnabled="1" headerPath="External/"/>
   </LIVE_SETTINGS>
 </JUCERPROJECT>
