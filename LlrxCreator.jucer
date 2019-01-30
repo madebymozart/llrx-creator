@@ -45,7 +45,7 @@
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
-    <VS2017 targetFolder="Builds/">
+    <VS2017 toolset="v141">
       <CONFIGURATIONS>
         <CONFIGURATION isDebug="1" name="Debug" multiProcessorCompilation="1" optimisation="3"/>
         <CONFIGURATION isDebug="0" name="Release" headerPath="..\Source\External\&#10;..\Source\Schema\"
@@ -64,6 +64,7 @@
   <JUCEOPTIONS/>
   <LIVE_SETTINGS>
     <OSX/>
-    <WINDOWS buildEnabled="1" headerPath="External/"/>
+    <WINDOWS buildEnabled="1" headerPath="Source&#10;Source\External&#10;"
+             windowsTargetPlatformVersion="10.0.17763.0"/>
   </LIVE_SETTINGS>
 </JUCERPROJECT>
