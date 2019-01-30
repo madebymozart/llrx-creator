@@ -15,7 +15,7 @@
   * @param ending The ending we want to compare.
   * @return True of the value's ending is equal to the provided one, otherwise false.
   */
-static bool ends_with(std::string const & value, std::string const & ending) {
+inline bool ends_with(std::string const & value, std::string const & ending) {
 	if (ending.size() > value.size()) return false;
 	return std::equal(value.rbegin(), value.rbegin() + ending.size(), ending.rbegin(), ending.rend());
 }
@@ -27,7 +27,7 @@ static bool ends_with(std::string const & value, std::string const & ending) {
  * @param new_extension New extension to append to the string.
  * @return New string with new file extension. Will return original string if no '.' character is found.
  */
-static std::string replace_extension(const std::string& filename, const std::string& new_extension) {
+inline std::string replace_extension(const std::string& filename, const std::string& new_extension) {
 	size_t lastdot = filename.find_last_of(".");
 	if (lastdot == std::string::npos) return filename;
 	return filename.substr(0, lastdot).append(new_extension);

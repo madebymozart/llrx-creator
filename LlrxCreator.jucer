@@ -4,52 +4,52 @@
               splashScreenColour="Dark" projectType="consoleapp" version="1.1.0"
               bundleIdentifier="com.mozartlouis.llrxcreator" includeBinaryInAppConfig="1"
               cppLanguageStandard="latest" companyCopyright="Copyright (c) 2019 Mozart Alexander Louis"
-              jucerVersion="5.4.1" headerPath="..\Source&#10;..\Source\External&#10;"
+              jucerVersion="5.4.1" headerPath="..\..\Source&#10;..\..\Source\External&#10;"
               companyEmail="prodbymozart@gmail.com">
   <MAINGROUP id="Wpros1" name="LlrxCreator">
     <GROUP id="{9E22F0B3-3D67-413A-C486-1FF6643F6659}" name="Source">
       <GROUP id="{2F1036F7-7224-B3A6-CA25-7F35F423461D}" name="external">
         <GROUP id="{E7C18A41-B060-1959-98F5-53EC6CE55454}" name="cmd">
-          <FILE id="KRJ8Mt" name="cmd.hpp" compile="0" resource="0" file="Source/External/cmd/cmd.hpp"/>
+          <FILE id="KRJ8Mt" name="cmd.hpp" compile="1" resource="0" file="Source/External/cmd/cmd.hpp"/>
         </GROUP>
         <GROUP id="{2B2D6EB9-53F6-4A69-4D6B-FFF108268AAE}" name="flatbuffers">
-          <FILE id="cnzyqF" name="base.h" compile="0" resource="0" file="Source/External/flatbuffers/base.h"/>
-          <FILE id="jQ2Ezn" name="flatbuffers.h" compile="0" resource="0" file="Source/External/flatbuffers/flatbuffers.h"/>
-          <FILE id="rkY3Cx" name="flexbuffers.h" compile="0" resource="0" file="Source/External/flatbuffers/flexbuffers.h"/>
+          <FILE id="cnzyqF" name="base.h" compile="1" resource="0" file="Source/External/flatbuffers/base.h"/>
+          <FILE id="jQ2Ezn" name="flatbuffers.h" compile="1" resource="0" file="Source/External/flatbuffers/flatbuffers.h"/>
+          <FILE id="rkY3Cx" name="flexbuffers.h" compile="1" resource="0" file="Source/External/flatbuffers/flexbuffers.h"/>
           <FILE id="oOGmaK" name="grpc.h" compile="0" resource="0" file="Source/External/flatbuffers/grpc.h"/>
-          <FILE id="UgT4DU" name="hash.h" compile="0" resource="0" file="Source/External/flatbuffers/hash.h"/>
-          <FILE id="H4P7VK" name="idl.h" compile="0" resource="0" file="Source/External/flatbuffers/idl.h"/>
+          <FILE id="UgT4DU" name="hash.h" compile="1" resource="0" file="Source/External/flatbuffers/hash.h"/>
+          <FILE id="H4P7VK" name="idl.h" compile="1" resource="0" file="Source/External/flatbuffers/idl.h"/>
           <FILE id="QITYLT" name="idl_parser.cpp" compile="1" resource="0" file="Source/External/flatbuffers/idl_parser.cpp"/>
-          <FILE id="OxkQmL" name="minireflect.h" compile="0" resource="0" file="Source/External/flatbuffers/minireflect.h"/>
+          <FILE id="OxkQmL" name="minireflect.h" compile="1" resource="0" file="Source/External/flatbuffers/minireflect.h"/>
           <FILE id="tpXfgP" name="reflection.cpp" compile="1" resource="0" file="Source/External/flatbuffers/reflection.cpp"/>
-          <FILE id="YVmwPW" name="reflection.h" compile="0" resource="0" file="Source/External/flatbuffers/reflection.h"/>
-          <FILE id="wbnJs3" name="reflection_generated.h" compile="0" resource="0"
+          <FILE id="YVmwPW" name="reflection.h" compile="1" resource="0" file="Source/External/flatbuffers/reflection.h"/>
+          <FILE id="wbnJs3" name="reflection_generated.h" compile="1" resource="0"
                 file="Source/External/flatbuffers/reflection_generated.h"/>
-          <FILE id="ekKWEg" name="registry.h" compile="0" resource="0" file="Source/External/flatbuffers/registry.h"/>
-          <FILE id="H5ILx2" name="stl_emulation.h" compile="0" resource="0" file="Source/External/flatbuffers/stl_emulation.h"/>
+          <FILE id="ekKWEg" name="registry.h" compile="1" resource="0" file="Source/External/flatbuffers/registry.h"/>
+          <FILE id="H5ILx2" name="stl_emulation.h" compile="1" resource="0" file="Source/External/flatbuffers/stl_emulation.h"/>
           <FILE id="eqmEPX" name="util.cpp" compile="1" resource="0" file="Source/External/flatbuffers/util.cpp"/>
-          <FILE id="p3QCcz" name="util.h" compile="0" resource="0" file="Source/External/flatbuffers/util.h"/>
+          <FILE id="p3QCcz" name="util.h" compile="1" resource="0" file="Source/External/flatbuffers/util.h"/>
         </GROUP>
       </GROUP>
       <GROUP id="{4958A094-00CE-1378-6F9A-415644BFE42B}" name="schema">
         <FILE id="SjmWh1" name="llrx.fbs" compile="0" resource="1" file="Source/Schema/llrx.fbs"/>
-        <FILE id="Ny9iOg" name="llrx_generated.h" compile="0" resource="0"
+        <FILE id="Ny9iOg" name="llrx_generated.h" compile="1" resource="0"
               file="Source/Schema/llrx_generated.h"/>
       </GROUP>
       <GROUP id="{F61DDD04-4FFB-0179-0356-236BE64F7763}" name="creator">
         <FILE id="USxRym" name="creator.cpp" compile="1" resource="0" file="Source/creator/creator.cpp"/>
-        <FILE id="oS9FlW" name="creator.h" compile="0" resource="0" file="Source/creator/creator.h"/>
+        <FILE id="oS9FlW" name="creator.h" compile="1" resource="0" file="Source/creator/creator.h"/>
       </GROUP>
-      <FILE id="UuMpCH" name="util.h" compile="0" resource="0" file="Source/util.h"/>
+      <FILE id="UuMpCH" name="util.h" compile="1" resource="0" file="Source/util.h"/>
       <FILE id="U6Th6V" name="main.cpp" compile="1" resource="0" file="Source/main.cpp"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
     <VS2017 toolset="v141">
       <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug" multiProcessorCompilation="1" optimisation="3"/>
-        <CONFIGURATION isDebug="0" name="Release" headerPath="..\Source\External\&#10;..\Source\Schema\"
-                       libraryPath="..\Source\External\&#10;..\Source\Schema\"/>
+        <CONFIGURATION isDebug="1" name="Debug" multiProcessorCompilation="1" optimisation="3"
+                       postbuildCommand="copy /Y &quot;$(TargetDir)LlrxCreator.exe&quot; &quot;$(SolutionDir)..\..\Tests\$(ProjectName).exe&quot;&#10;"/>
+        <CONFIGURATION isDebug="0" name="Release" postbuildCommand="if not exist $(SolutionDir)..\..\Release mkdir $(SolutionDir)..\..\Release&#10;copy /Y &quot;$(TargetDir)LlrxCreator.exe&quot; &quot;$(SolutionDir)..\..\Release\LlrxCreator.exe&quot;"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../../juce"/>
@@ -65,6 +65,6 @@
   <LIVE_SETTINGS>
     <OSX/>
     <WINDOWS buildEnabled="1" headerPath="Source&#10;Source\External&#10;"
-             windowsTargetPlatformVersion="10.0.17763.0"/>
+             windowsTargetPlatformVersion="10.0.17763.0" continuousRebuildEnabled="1"/>
   </LIVE_SETTINGS>
 </JUCERPROJECT>

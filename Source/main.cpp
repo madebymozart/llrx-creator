@@ -12,7 +12,6 @@ void configure(cli::Parser &parser) {
 	parser.set_required<std::string>("d", "directory", "", "Relative path to directory with containing files");
 }
 
-
 /// Main
 int main(int argc, char* argv[]) {
 	std::cout << std::endl << "###### LlrxCreator 1.1.0 - A tool to convert midi files to llrx files for Lleeria";
@@ -28,14 +27,13 @@ int main(int argc, char* argv[]) {
 	const auto& creator = new Creator();
 
 	/// Delete and remake the output directory
-	std::filesystem::remove(__LLRX_OUTPUT__);
+	std::filesystem::remove_all(__LLRX_OUTPUT__);
 	std::filesystem::create_directory(__LLRX_OUTPUT__);
 
 	/// Go through every file in the directory and try to create a llrx file with them.
 	for (const auto& entry : std::filesystem::directory_iterator(path)) {
 		const auto name = entry.path().generic_string();
 		if (ends_with(name, ".mid") || ends_with(name, ".midi")) creator->createLlrxFile(name);
-		else std::cout << "Ignoring " << entry.path() << std::endl;
 	}
 
 	/// Exit

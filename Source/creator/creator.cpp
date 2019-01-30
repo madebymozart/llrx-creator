@@ -3,9 +3,12 @@
 /// Class
 #include "creator.h"
 
-/// Local includes
+/// Local Includes
 #include "flatbuffers/util.h"
 #include "util.h"
+
+/// System Includes
+#include <filesystem>
 
 Creator::Creator() {
 	/// delete the output folder and
@@ -19,19 +22,13 @@ void Creator::createLlrxFile(const std::string& file) {
 	std::unique_ptr<MidiFile> midi(new MidiFile());
 	std::unique_ptr<InputStream> stream;
 
-	/// Get the file content using Juce and create the midi file for it
-	auto juceFile = File::getCurrentWorkingDirectory().getChildFile(juce::String((file).c_str()));
-	if (!juceFile.exists()) {
-		std::cout << "###### " << file << ".mid does not exist..." << std::endl;
-		return;
-	}
-
 	/// Stream the file to create a midi object instance
+	const auto juceFile = File::getCurrentWorkingDirectory().getChildFile(juce::String((file).c_str()));
 	stream.reset(juceFile.createInputStream());
 	midi->readFrom(*stream);
 
 	if (midi->getNumTracks() <= 2) {
-		std::cout << "###### " << file << ".mid is corrupt... Re-export..." << std::endl;
+		std::cout << file << " is corrupt... Re-export..." << std::endl<< std::endl;
 		return;
 	}
 	midi->convertTimestampTicksToSeconds();
@@ -47,13 +44,14 @@ void Creator::createLlrxFile(const std::string& file) {
 	builder.Finish(createLlrx(builder, file, amount, entities));
 
 	const auto llrx_file = std::string(__LLRX_OUTPUT__) + "/" + replace_extension(file, ".llrx");
-	flatbuffers::SaveFile(llrx_file.c_str(), (const char *)builder.GetBufferPointer(),
-		builder.GetSize(), true);
+	flatbuffers::SaveFile(llrx_file.c_str(), (const char *)builder.GetBufferPointer(),builder.GetSize(), true);
 
 	/// Validate the the saved file is good and can be read back.
-	if (validateLlrx(llrx_file, amount))
-		std::cout << "###### " << file << ".llrx created and verified! Placed in " << llrx_file << std::endl;
-	else std::cout << "###### " << file + ".llrx failed... could not verify " << llrx_file << " :[" << std::endl;
+	if (validateLlrx(llrx_file, amount)) std::cout << "###### " << llrx_file << " created and verified!" << std::endl << std::endl;
+	else {
+		std::cout << "###### " << file + ".llrx failed... could not verify " << llrx_file << " :[" << std::endl;
+		std::filesystem::remove(llrx_file);
+	}
 }
 
 EntityVector Creator::createEntities(flatbuffers::FlatBufferBuilder& builder, std::unique_ptr<MidiFile>& midi_file) {
@@ -103,11 +101,11 @@ bool Creator::validateLlrx(const std::string& llrx, const int32_t entity_amount)
 	/// Validate this is a LlrxBuffer and is readable
 	flatbuffers::Verifier verifier(reinterpret_cast<const uint8_t *>(readbuf.c_str()), readbuf.length());
 
-	/** auto readOrc = GetLlrx(readbuf.c_str());
+	/* auto readOrc = GetLlrx(readbuf.c_str());
 	 std::cout << "Name: " << readOrc->name()->c_str() << std::endl;
 	 std::cout << "Amount: " << readOrc->amount() << std::endl;
 
-	 for (auto it = readOrc->entities()->begin(); it != readOrc->entities()->end(); ++it) {
+	  for (auto it = readOrc->entities()->begin(); it != readOrc->entities()->end(); ++it) {
 	 // access element as *it
 	 std::cout << "Entities:" << std::endl;
 
@@ -119,6 +117,5 @@ bool Creator::validateLlrx(const std::string& llrx, const int32_t entity_amount)
 	 } */
 
 	return VerifyLlrxBuffer(verifier) && entity_amount == GetLlrx(readbuf.c_str())->amount();
-
 }
 
